@@ -1,0 +1,45 @@
+<h1>Heroe</h1>
+<button type="button" class="btn btn-danger float-right mb-5" [routerLink]="['/heroes']">
+    Regresar
+    <i class="fas fa-arrow-alt-circle-left"></i>
+</button>
+<div class="row mt-5">
+    <div class="col">
+        <form (ngSubmit)="addHeroe(f)" #f="ngForm">
+            <div class="form-group">
+                <label>ID Firebase</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Firebase ID" [(ngModel)]="loHeroe.id" name="id">
+                <small class=" form-text text-muted ">ID Firebase autonumerico</small>
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" required placeholder="Nombre del Heroe" [(ngModel)]="loHeroe.nombre" name="nombre">
+                <small class=" form-text text-danger">Debe Ingresar el nombre</small>
+            </div>
+            <div class="form-group">
+                <label>Poder</label>
+                <input type="text" class="form-control" required placeholder="Poder del Heroe" [(ngModel)]="loHeroe.poder" name="poder">
+                <small class=" form-text text-danger">Debe Ingresar el poder</small>
+            </div>
+            <div class="form-group">
+                <label>Estado</label>
+                <br>
+                <button *ngIf="loHeroe.vivo==true" (click)="loHeroe.vivo = !loHeroe.vivo" type="button" class="btn btn-outline-success w-50">
+                    <i class="fas fa-smile-wink"></i>
+                    Vivo
+                </button>
+                <button *ngIf="loHeroe.vivo==false" (click)="loHeroe.vivo = !loHeroe.vivo" type="button" class="btn btn-outline-danger w-50">
+                    <i class="fas fa-dizzy"></i>
+                    Muerto
+                </button>
+            </div>
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fas fa-save    "></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
